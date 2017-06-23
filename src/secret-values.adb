@@ -80,7 +80,9 @@ package body Secret.Values is
    overriding
    procedure Adjust (Object : in out Secret_Type) is
    begin
-      Object.Opaque := Secret_Value_Ref (Object.Opaque);
+      if Object.Opaque /= System.Null_Address then
+         Object.Opaque := Secret_Value_Ref (Object.Opaque);
+      end if;
    end Adjust;
 
    overriding
