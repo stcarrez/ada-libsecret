@@ -32,9 +32,11 @@ private
       Opaque : Opaque_Type := System.Null_Address;
    end record;
 
+   --  Internal operation to set the libsecret internal pointer.
    procedure Set_Opaque (Into : in out Object_Type'Class;
                          Data : in Opaque_Type);
 
+   --  Internal operation to get the libsecret internal pointer.
    function Get_Opaque (From : in Object_Type'Class) return Opaque_Type;
 
    subtype Chars_Ptr is Interfaces.C.Strings.chars_ptr;
@@ -52,5 +54,5 @@ private
    pragma Linker_Options ("-lglib-2.0");
    pragma Linker_Options ("-lgio-2.0");
    pragma Linker_Options ("-gobject");
-   pragma Linker_Options ("-liconv");
+   --  pragma Linker_Options ("-liconv");
 end Secret;
