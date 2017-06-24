@@ -19,6 +19,14 @@
 package body Secret is
 
    --  ------------------------------
+   --  Check if the value is empty.
+   --  ------------------------------
+   function Is_Null (Value : in Object_Type'Class) return Boolean is
+   begin
+      return Value.Opaque = System.Null_Address;
+   end Is_Null;
+
+   --  ------------------------------
    --  Internal operation to set the libsecret internal pointer.
    --  ------------------------------
    procedure Set_Opaque (Into : in out Object_Type'Class;
