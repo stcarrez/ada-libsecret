@@ -43,6 +43,13 @@ package body Secret.Services is
                                      Err    : in System.Address) return System.Address
      with Import => True, Convention => C, Link_Name => "secret_service_get_sync";
 
+   procedure Secret_Service_Clear_Sync (Serv   : in System.Address;
+                                        Schema : in System.Address;
+                                        Attr   : in System.Address;
+                                        Cancel : in System.Address;
+                                        Err    : in System.Address)
+     with Import => True, Convention => C, Link_Name => "secret_service_clear_sync";
+
    --  ------------------------------
    --  Initialize the secret service instance by getting a secret service proxy and
    --  making sure the service has the service flags initialized.
@@ -99,5 +106,17 @@ package body Secret.Services is
       end if;
       return Result;
    end Lookup;
+
+   --  Remove from the secret service the value associated with the given attributes.
+   procedure Remove (Service : in Service_Type;
+                     Attr    : in Secret.Attributes.Map) is
+      Error : GError;
+   begin
+      Secret_Service_Clear_Sync (Get_Opaque (Service), System.Null_Address,
+                                 Get_Opaque (Attr), System.Null_Address, Error'Address);
+      if Error /= null then
+         raise Service_Error with To_String (Error.Message);
+      end if;
+   end Remove;
 
 end Secret.Services;
