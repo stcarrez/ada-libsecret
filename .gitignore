@@ -16,4 +16,4 @@ autom4te.cache
 lib/
 obj/
 secret_tests.gpr
-							       
+samples.gpr
