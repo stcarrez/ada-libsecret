@@ -75,4 +75,9 @@ package Secret.Services is
                     Attr    : in Secret.Attributes.Map) return Secret.Values.Secret_Type
      with Pre => not Attr.Is_Null;
 
+   --  Remove from the secret service the value associated with the given attributes.
+   procedure Remove (Service : in Service_Type;
+                     Attr    : in Secret.Attributes.Map)
+     with Pre => not Attr.Is_Null;
+
 end Secret.Services;
