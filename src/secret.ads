@@ -22,6 +22,9 @@ package Secret is
 
    type Object_Type is tagged private;
 
+   --  Check if the value is empty.
+   function Is_Null (Value : in Object_Type'Class) return Boolean;
+
 private
 
    use type System.Address;
@@ -49,6 +52,14 @@ private
 
    function New_String (V : in String) return Chars_Ptr
       renames Interfaces.C.Strings.New_String;
+
+   type GError_Type is record
+      Domain  : Interfaces.Unsigned_32 := 0;
+      Code    : Interfaces.C.int := 0;
+      Message : Chars_Ptr;
+   end record with Convention => C;
+
+   type GError is access all Gerror_Type with Convention => C;
 
    pragma Linker_Options ("-lsecret-1");
    pragma Linker_Options ("-lglib-2.0");
