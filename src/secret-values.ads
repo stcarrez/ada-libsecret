@@ -20,9 +20,6 @@ package Secret.Values is
    --  Represents a value returned by the secret server.
    type Secret_Type is new Object_Type with null record;
 
-   --  Check if the value is empty.
-   function Is_Null (Value : in Secret_Type) return Boolean;
-
    --  Create a value with the default content type text/plain.
    function Create (Value : in String) return Secret_Type
      with Post => not Create'Result.Is_Null;
