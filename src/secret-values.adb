@@ -37,14 +37,6 @@ package body Secret.Values is
      with Import => True, Convention => C, Link_Name => "secret_value_get";
 
    --  ------------------------------
-   --  Check if the value is empty.
-   --  ------------------------------
-   function Is_Null (Value : in Secret_Type) return Boolean is
-   begin
-      return Value.Opaque = System.Null_Address;
-   end Is_Null;
-
-   --  ------------------------------
    --  Create a value with the default content type text/plain.
    --  ------------------------------
    function Create (Value : in String) return Secret_Type is
