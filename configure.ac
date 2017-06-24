@@ -53,5 +53,5 @@ AC_SUBST(UTIL_DIR)
 
 AM_UTIL_CHECK_INSTALL
 AC_OUTPUT(
-Makefile secret.gpr secret_tests.gpr
+Makefile secret.gpr secret_tests.gpr samples.gpr
 )
