@@ -15,7 +15,7 @@
 --  See the License for the specific language governing permissions and
 --  limitations under the License.
 -----------------------------------------------------------------------
-with Secret.Values.Tests;
+with Secret.Tests;
 package body Secret.Testsuite is
 
    Tests : aliased Util.Tests.Test_Suite;
@@ -23,7 +23,7 @@ package body Secret.Testsuite is
    function Suite return Util.Tests.Access_Test_Suite is
       Ret : constant Util.Tests.Access_Test_Suite := Tests'Access;
    begin
-      Secret.Values.Tests.Add_Tests (Ret);
+      Secret.Tests.Add_Tests (Ret);
       return Ret;
    end Suite;
 
