@@ -59,7 +59,7 @@ private
       Message : Chars_Ptr;
    end record with Convention => C;
 
-   type GError is access all Gerror_Type with Convention => C;
+   type GError is access all GError_Type with Convention => C;
 
    pragma Linker_Options ("-lsecret-1");
    pragma Linker_Options ("-lglib-2.0");
