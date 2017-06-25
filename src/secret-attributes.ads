@@ -15,6 +15,16 @@
 --  See the License for the specific language governing permissions and
 --  limitations under the License.
 -----------------------------------------------------------------------
+
+--  === Secret Attributes ===
+--  The secret attributes describes the key/value pairs that allows the secret service to
+--  identify and retrieve a given secret value.  The secret attributes are displayed by the
+--  keyring manager to the user in the "technical details" section.
+--
+--  The <tt>Secret.Attributes</tt> package defines the <tt>Map</tt> type for the representation
+--  of attributes and it provides operations to populate the attributes.
+--
+--  The <tt>Map</tt> instances use reference counting and they can be shared.
 package Secret.Attributes is
 
    --  Represents a hashmap to store attributes.
