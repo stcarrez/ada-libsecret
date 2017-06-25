@@ -32,13 +32,43 @@ make
 
 The unit tests are built and executed with:
 ```
-   make test
+make test
 ```
 
 And the samples are built using:
 
 ```
-   gprbuild -p -Psamples
+gprbuild -p -Psamples
+```
+
+# Using the library
+
+First, add a with clause for the *secret* GNAT project, in your GNAT project file add this line:
+
+```
+with "secret";
+```
+
+Then, store a secret with:
+
+```
+Service : Secret.Services.Service_Type;
+List    : Secret.Attributes.Map;
+Value   : Secret.Values.Secret_Type;
+
+   Service.Initialize;
+   List.Insert ("secret identification key", "secret identification value");
+   Value := Secret.Values.Create ("the-secret-to-store");
+   Service.Store (List, "The secret label (for the keyring manager)", Value);
+```
+
+And you will retrieve it with:
+
+```
+   Value := Service.Lookup (List);
+   if not Value.Is_Null then
+      Ada.Text_IO.Put_Line (Value.Get_Value);
+   end if;
 ```
 
 # Running the samples
@@ -48,13 +78,16 @@ retrieve or delete a secret from the secret service API.
 You can add a secret using:
 
 ```
-   bin/secret-tool set my-secret
+bin/secret-tool set my-secret
 ```
 
 and retrieve it later with:
 
 ```
-   bin/secret-tool get
+bin/secret-tool get
 ```
 
+# References
 
+* [Secret Service API](https://specifications.freedesktop.org/secret-service/index.html)
+* [Libsecret Library Reference Manual](https://people.gnome.org/~stefw/libsecret-docs/)
