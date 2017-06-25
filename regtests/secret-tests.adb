@@ -15,8 +15,8 @@
 --  See the License for the specific language governing permissions and
 --  limitations under the License.
 -----------------------------------------------------------------------
+with Ada.Exceptions;
 with Util.Test_Caller;
-with Ada.Text_IO;
 with Secret.Values;
 with Secret.Attributes;
 with Secret.Services;
@@ -67,20 +67,34 @@ package body Secret.Tests is
       T.Assert (not List.Is_Null, "Attributes map must not be null");
    end Test_Attributes;
 
+   --  ------------------------------
+   --  Test storing a secret value.
+   --  ------------------------------
    procedure Test_Store (T : in out Test) is
       List : Secret.Attributes.Map;
       S    : Secret.Services.Service_Type;
       V    : Values.Secret_Type;
+      R    : Values.Secret_Type;
    begin
       S.Initialize;
       Secret.Attributes.Insert (List, "test-my-name", "my-value");
       V := Values.Create ("my-secret-value");
       S.Store (List, "my-test-password", V);
       Secret.Attributes.Insert (List, "secret-password-password", "admin");
-      V := S.Lookup (List);
-      if not V.Is_Null then
-         Ada.Text_IO.Put_Line ("Value=" & V.Get_Value);
+      R := S.Lookup (List);
+      if not R.Is_Null then
+         Util.Tests.Assert_Equals (T, "my-secret-value", R.Get_Value, "Invalig lookup");
       end if;
+      S.Remove (List);
+      R := S.Lookup (List);
+      T.Assert (R.Is_Null, "The secret value was not removed");
+
+   exception
+      when E : Secret.Services.Service_Error =>
+         Util.Tests.Assert_Matches (T, ".*autolaunch D-Bus without X11.*",
+                                    Ada.Exceptions.Exception_Message (E),
+                                    "Invalid exception raised");
+
    end Test_Store;
 
 end Secret.Tests;
