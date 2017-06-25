@@ -30,6 +30,7 @@ package Secret.Tests is
    --  Test attributes operations.
    procedure Test_Attributes (T : in out Test);
 
+   --  Test storing a secret value.
    procedure Test_Store (T : in out Test);
 
 end Secret.Tests;
