@@ -18,6 +18,16 @@
 with System;
 with Ada.Finalization;
 private with Interfaces.C.Strings;
+
+--  == Secret Service API ==
+--  The Secret Service API is a service developped for the Gnome keyring and the KDE KWallet.
+--  It allows application to access and manage stored passwords and secrets in the two
+--  desktop environments.  The libsecret is the C library that gives access to the secret
+--  service.  The <tt>Secret</tt> package provides an Ada binding for this secret service API.
+--
+--  @include secret-values.ads
+--  @include secret-attributes.ads
+--  @include secret-services.ads
 package Secret is
 
    type Object_Type is tagged private;
