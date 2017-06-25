@@ -87,7 +87,8 @@ and retrieve it later with:
 bin/secret-tool get
 ```
 
-# References
+# Documentation and References
 
 * [Secret Service API](https://specifications.freedesktop.org/secret-service/index.html)
 * [Libsecret Library Reference Manual](https://people.gnome.org/~stefw/libsecret-docs/)
+* [Ada wrapper for Secret Service](https://github.com/stcarrez/ada-libsecret/wiki/Secret)
