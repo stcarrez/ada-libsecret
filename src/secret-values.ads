@@ -15,6 +15,21 @@
 --  See the License for the specific language governing permissions and
 --  limitations under the License.
 -----------------------------------------------------------------------
+
+--  === Secret Values ===
+--  A secret value is represented by the <tt>Secret_Type</tt> type.  The value is internally
+--  held and managed by the libsecret in some secure memory region.   The secret value is
+--  associated with a content type that can be retrieved as well.  The Ada library only creates
+--  secret values with the "text/plain" content type.
+--
+--  A secret value is only copied by reference that is the secret value stored in the secure
+--  memory region is shared among different <tt>Secret_Type</tt> instances.  A secret value
+--  cannot be modified once it is created.
+--
+--  To create a secret value, you can use the <tt>Create</tt> function as follows:
+--
+--    Value : Secret.Values.Secret_Type := Secret.Values.Create ("my-secret-password");
+--
 package Secret.Values is
 
    --  Represents a value returned by the secret server.
