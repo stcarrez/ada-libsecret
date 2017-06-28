@@ -15,6 +15,8 @@ GPRPATH=secret.gpr
 
 BUILDS_SHARED=@BUILDS_SHARED@
 
+HAVE_ADA_UTIL=@SECRET_USE_ADA_UTIL@
+
 version=@SECRET_VERSION@
 
 distdir=ada-secret-@SECRET_VERSION@
@@ -84,7 +86,11 @@ build:	setup
 	$(GNATMAKE) -p -P"$(GPRPATH)" $(MAKE_ARGS)
 
 build-test:  build
+ifeq ($(HAVE_ADA_UTIL),yes)
 	$(GNATMAKE) -p -Psecret_tests $(MAKE_ARGS)
+else
+	@echo "WARNING: Tests are not compiled and not executed because Ada Utility Library is not used"
+endif
 
 static:
 	$(MAKE) SECRET_LIBRARY_TYPE=static build-test
@@ -122,7 +128,9 @@ rebuild: clean build
 
 # Build and run the unit tests
 test:	build-test
+ifeq ($(HAVE_ADA_UTIL),yes)
 	bin/secret_harness -xml secret-aunit.xml
+endif
 
 dist:
 	git archive -o $(DIST_FILE) --prefix=$(distdir)/ HEAD
