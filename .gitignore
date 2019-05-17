@@ -9,11 +9,10 @@ CHANGES
 ChangeLog
 .settings
 configure.lineno
-Makefile
-secret.gpr
+secretada.gpr
 autom4te.cache
 *.txt
 lib/
 obj/
-secret_tests.gpr
+secretada_tests.gpr
 samples.gpr
