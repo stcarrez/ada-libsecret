@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------
 --  Secret -- Ada wrapper for Secret Service
---  Copyright (C) 2017 Stephane Carrez
+--  Copyright (C) 2017, 2019 Stephane Carrez
 --  Written by Stephane Carrez (Stephane.Carrez@gmail.com)
 --
 --  Licensed under the Apache License, Version 2.0 (the "License");
@@ -74,6 +74,5 @@ private
    pragma Linker_Options ("-lsecret-1");
    pragma Linker_Options ("-lglib-2.0");
    pragma Linker_Options ("-lgio-2.0");
-   pragma Linker_Options ("-gobject");
    --  pragma Linker_Options ("-liconv");
 end Secret;
