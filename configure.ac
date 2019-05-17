@@ -9,10 +9,11 @@ dnl AM_MAINTAINER_MODE
 
 # Current release settings
 SECRET_MAJOR_VERSION=0
-SECRET_MINOR_VERSION=1
+SECRET_MINOR_VERSION=2
 SECRET_MICRO_VERSION=0
 SECRET_VERSION=$SECRET_MAJOR_VERSION.$SECRET_MINOR_VERSION.$SECRET_MICRO_VERSION
-AM_GNAT_CHECK_GPRBUILD
+
+AM_GNAT_LIBRARY_PROJECT(secretada)
 
 # checking for local tools
 AC_PROG_CC
@@ -30,15 +31,6 @@ EXEC_PREFIX="$prefix"
 AC_SUBST(EXEC_PREFIX)
 SECRET_LIBDIR="lib"
 AC_SUBST(SECRET_LIBDIR)
-
-AC_MSG_CHECKING([number of processors])
-NR_CPUS=`getconf _NPROCESSORS_CONF 2>/dev/null || getconf NPROCESSORS_CONF 2>/dev/null || echo 1`
-AC_MSG_RESULT($NR_CPUS)
-AC_SUBST(NR_CPUS)
-##########################################
-# Check to enable/disable shared library
-##########################################
-AM_SHARED_LIBRARY_SUPPORT
 
 AC_MSG_CHECKING([Ada Utility Library])
 AC_ARG_WITH(ada-util,
@@ -59,13 +51,13 @@ AC_MSG_RESULT(${SECRET_USE_ADA_UTIL})
 # Ada Util library
 ##########################################
 if test T${SECRET_USE_ADA_UTIL} = Tyes; then
-AM_GNAT_FIND_PROJECT([ada-util],[Ada Utility Library],[util],
+AM_GNAT_FIND_PROJECT([ada-util],[Ada Utility Library],[utilada_sys],
   [git@github.com:stcarrez/ada-util.git],
   [Building Secret requires the Ada Utility Library.],
   [
-    UTIL_DIR=${gnat_project_dir_util}
+    UTIL_DIR=${gnat_project_dir_utilada_sys}
   ])
-  WITH_ADA_UTIL="with \"${UTIL_DIR}util\";";
+  WITH_ADA_UTIL="with \"${UTIL_DIR}utilada_sys\";";
 else
   WITH_ADA_UTIL=''
   UTIL_DIR=''
@@ -76,5 +68,5 @@ AC_SUBST(SECRET_USE_ADA_UTIL)
 
 AM_UTIL_CHECK_INSTALL
 AC_OUTPUT(
-Makefile secret.gpr secret_tests.gpr samples.gpr
+Makefile.conf secretada.gpr secretada_tests.gpr samples.gpr
 )
