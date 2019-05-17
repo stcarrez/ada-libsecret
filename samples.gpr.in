@@ -1,5 +1,5 @@
 with "@UTIL_DIR@config";
-with "secret";
+with "secretada";
 
 project Samples is
 
