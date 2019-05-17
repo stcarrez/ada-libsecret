@@ -9,6 +9,7 @@ CHANGES
 ChangeLog
 .settings
 configure.lineno
+Makefile.conf
 secretada.gpr
 autom4te.cache
 *.txt
