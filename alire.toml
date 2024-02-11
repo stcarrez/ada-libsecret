@@ -14,5 +14,10 @@ licenses = "Apache-2.0"
 website = "https://gitlab.com/stcarrez/ada-libsecret"
 tags = ["secret", "bindings"]
 
+[available.'case(os)']
+ubuntu = true
+debian = true
+'...' = false
+
 [configuration]
 disabled = true
