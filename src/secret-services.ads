@@ -68,7 +68,7 @@ package Secret.Services is
                     Attr    : in Secret.Attributes.Map;
                     Label   : in String;
                     Value   : in Secret.Values.Secret_Type)
-     with Pre => not Attr.Is_Null and not Value.Is_Null;
+     with Pre => not Attr.Is_Null and then not Value.Is_Null;
 
    --  Lookup in the secret service the value identified by the attributes.
    function Lookup (Service : in Service_Type;
