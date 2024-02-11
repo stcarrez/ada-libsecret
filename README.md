@@ -47,15 +47,17 @@ You can store a secret by using the following code extract:
 
 ```
 with Secret.Services;
+with Secret.Attributes;
+with Secret.Values;
 ...
-Service : Secret.Services.Service_Type;
-List    : Secret.Attributes.Map;
-Value   : Secret.Values.Secret_Type;
-
-   Service.Initialize;
-   List.Insert ("secret identification key", "secret identification value");
-   Value := Secret.Values.Create ("the-secret-to-store");
-   Service.Store (List, "The secret label (for the keyring manager)", Value);
+   Service : Secret.Services.Service_Type;
+   List    : Secret.Attributes.Map;
+   Value   : Secret.Values.Secret_Type;
+...
+      Service.Initialize;
+      List.Insert ("secret identification key", "secret identification value");
+      Value := Secret.Values.Create ("the-secret-to-store");
+      Service.Store (List, "The secret label (for the keyring manager)", Value);
 ```
 
 And you will retrieve it with:
