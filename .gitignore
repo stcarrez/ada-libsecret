@@ -1,6 +1,7 @@
+/alire/
+/regtests/alire/
 *~
 *.log
-config.status
 CHANGES
 *.cproject
 *.gb_project
@@ -9,10 +10,8 @@ CHANGES
 ChangeLog
 .settings
 configure.lineno
-Makefile.conf
 autom4te.cache
 *.txt
 lib/
 obj/
-secretada_tests.gpr
 samples.gpr
