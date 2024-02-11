@@ -1,9 +1,8 @@
 # Ada Libsecret Library
 
-[![Build Status](https://img.shields.io/jenkins/s/http/jenkins.vacs.fr/Ada-Libsecret.svg)](http://jenkins.vacs.fr/job/Ada-Libsecret/)
-[![Test Status](https://img.shields.io/jenkins/t/http/jenkins.vacs.fr/Ada-Libsecret.svg)](http://jenkins.vacs.fr/job/Ada-Libsecret/)
-[![License](http://img.shields.io/badge/license-APACHE2-blue.svg)](LICENSE)
-![Commits](https://img.shields.io/github/commits-since/stcarrez/ada-libsecret/0.0.0.svg)
+[![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-libsecret/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-libsecret/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-libsecret/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-libsecret/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-libsecret/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-libsecret/summary)
 
 The [libsecret](https://wiki.gnome.org/Projects/Libsecret) is a library for storing
 and retrieving passwords and others secrets.  The library uses the
