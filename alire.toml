@@ -49,8 +49,7 @@ SECRETADA_BUILD = ["distrib", "debug", "optimize", "profile", "coverage"]
 SECRETADA_LIBRARY_TYPE = ["relocatable", "static", "static-pic"]
 
 [available.'case(os)']
-ubuntu = true
-debian = true
+linux = true
 '...' = false
 
 [configuration]
