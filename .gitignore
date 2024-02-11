@@ -17,6 +17,8 @@ bin/
 lib/
 obj/
 samples.gpr
-regtests/results
+regtests/results/
 secret-aunit.xml
 secret-tests.xml
+/cover/
+secretada.cov
