@@ -1,0 +1,18 @@
+name = "secretada"
+description = "Secret service Ada binding"
+version = "1.0.1"
+long-description = """
+
+This is a small Ada library that provides binding to the secret service.
+
+"""
+
+authors = ["Stephane.Carrez@gmail.com"]
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+licenses = "Apache-2.0"
+website = "https://gitlab.com/stcarrez/ada-libsecret"
+tags = ["secret", "bindings"]
+
+[configuration]
+disabled = true

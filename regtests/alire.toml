@@ -1,0 +1,20 @@
+name = "secretada_tests"
+description = "Unit tests for secretada library"
+version = "1.0.0"
+
+authors = ["Stephane.Carrez@gmail.com"]
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+licenses = "Apache-2.0"
+website = ""
+tags = []
+
+executables = ["secret_harness"]
+
+[[depends-on]]
+secretada = "*"
+utilada = "^2.6.0"
+utilada_unit = "^2.6.0"
+
+[[pins]]
+secretada = { path='..' }
