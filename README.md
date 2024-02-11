@@ -40,12 +40,14 @@ gprbuild -p -Psamples
 First, add a with clause for the *secret* GNAT project, in your GNAT project file add this line:
 
 ```
-with "secret";
+with "secretada";
 ```
 
-Then, store a secret with:
+You can store a secret by using the following code extract:
 
 ```
+with Secret.Services;
+...
 Service : Secret.Services.Service_Type;
 List    : Secret.Attributes.Map;
 Value   : Secret.Values.Secret_Type;
