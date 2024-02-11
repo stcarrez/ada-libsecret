@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------
 --  secret-services -- Ada wrapper for Secret Service
---  Copyright (C) 2017 Stephane Carrez
+--  Copyright (C) 2017, 2019 Stephane Carrez
 --  Written by Stephane Carrez (Stephane.Carrez@gmail.com)
 --
 --  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,6 @@
 package body Secret.Services is
 
    use type Interfaces.C.int;
-   use type Interfaces.C.Strings.chars_ptr;
 
    procedure Secret_Service_Store_Sync (Serv   : in System.Address;
                                         Schema : in System.Address;
