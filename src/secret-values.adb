@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------
 --  secret-values -- Ada wrapper for Secret Service
---  Copyright (C) 2017 Stephane Carrez
+--  Copyright (C) 2017, 2024 Stephane Carrez
 --  Written by Stephane Carrez (Stephane.Carrez@gmail.com)
 --
 --  Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
 --  See the License for the specific language governing permissions and
 --  limitations under the License.
 -----------------------------------------------------------------------
-
+with Interfaces.C;
 package body Secret.Values is
 
    function Secret_Value_New (Sec  : in Chars_Ptr;
@@ -63,7 +63,7 @@ package body Secret.Values is
    --  Get the value as a string.
    --  ------------------------------
    function Get_Value (Value : in Secret_Type) return String is
-      Len : aliased Natural;
+      Len : aliased Interfaces.C.size_t;
       Ptr : constant Chars_Ptr := Secret_Value_Get (Value.Opaque, Len'Address);
    begin
       return To_String (Ptr);
