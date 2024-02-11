@@ -1,0 +1,17 @@
+with "secretada_config";
+with "secretada";
+
+project Examples is
+
+   Mains := ("secret-tool.adb");
+   for Main use Mains;
+   for Source_Dirs use ("src");
+   for Object_Dir use "./" & SecretAda_Config'Object_Dir & "/obj";
+   for Exec_Dir use "./" & SecretAda_Config'Exec_Dir & "/bin";
+
+   package Binder renames SecretAda_Config.Binder;
+   package Builder renames SecretAda.Builder;
+   package Compiler renames SecretAda.Compiler;
+   package Linker renames SecretAda_Config.Linker;
+
+end Examples;

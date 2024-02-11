@@ -11,6 +11,9 @@ endif
 build:
 	alr build $(MAKE_ARGS)
 
+examples:
+	cd examples && alr build $(MAKE_ARGS)
+
 clean:
 	alr clean
 	rm -rf obj lib regtests/bin
@@ -18,3 +21,5 @@ clean:
 test:
 	cd regtests && alr build $(MAKE_ARGS)
 	./regtests/bin/secret_harness
+
+.PHONY: examples

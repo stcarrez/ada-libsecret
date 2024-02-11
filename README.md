@@ -18,15 +18,10 @@ On Ubuntu, you may have to install the following packages:
 sudo apt-get install libsecret-1-dev libglib2.0-dev
 ```
 
-You will also need the Ada compiler and the following libraries:
-
-* Ada Util     (https://github.com/stcarrez/ada-util          1.9.0)
-
 # Building
 
 ```
-./configure
-make
+alr with secretada
 ```
 
 The unit tests are built and executed with:

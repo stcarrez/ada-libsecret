@@ -1,6 +1,6 @@
 name = "secretada"
 description = "Secret service Ada binding"
-version = "1.0.1"
+version = "1.0.0"
 long-description = """
 
 This is a small Ada library that provides binding to the secret service.
