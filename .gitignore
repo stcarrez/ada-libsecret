@@ -18,3 +18,5 @@ lib/
 obj/
 samples.gpr
 regtests/results
+secret-aunit.xml
+secret-tests.xml
