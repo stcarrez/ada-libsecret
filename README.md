@@ -90,5 +90,5 @@ bin/secret-tool get
 # Documentation and References
 
 * [Secret Service API](https://specifications.freedesktop.org/secret-service/index.html)
-* [Libsecret Library Reference Manual](https://people.gnome.org/~stefw/libsecret-docs/)
+* [Libsecret Library Reference Manual](https://gnome.pages.gitlab.gnome.org/libsecret/)
 * [Ada wrapper for Secret Service](https://github.com/stcarrez/ada-libsecret/wiki/Secret)
