@@ -1,0 +1,14 @@
+name = "examples"
+description = "SecretAda demo"
+version = "1.0.0"
+
+executables = ["secret-tool"]
+
+[[depends-on]]
+secretada = "*"
+
+[[pins]]
+secretada = { path='..' }
+
+[configuration]
+disabled = true
