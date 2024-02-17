@@ -52,5 +52,9 @@ SECRETADA_LIBRARY_TYPE = ["relocatable", "static", "static-pic"]
 linux = true
 '...' = false
 
+[[depends-on]]
+libglib = "*"
+libsecret = "*"
+
 [configuration]
 disabled = true
